@@ -1,4 +1,4 @@
-## 
+## GireMock
 
 A gRPC mock server which utilizes WireMock for handling mock requests.
 
