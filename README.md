@@ -135,7 +135,7 @@ The response body must adhere to the Message returned by the method.
 
 ### Example:
 
-See [grpcdomain] (https://github.com/balchua/grpcdomain) project repo.
+See [grpcdomain](https://github.com/balchua/grpcdomain) project repo.
 
 
 Limitations:
