@@ -1,0 +1,61 @@
+{{#packageName}}
+package {{packageName}};
+{{/packageName}}
+
+import io.giremock.helper.WiremockHelper;
+import com.google.protobuf.InvalidProtocolBufferException;
+import com.google.protobuf.util.*;
+import io.grpc.CallOptions;
+import io.grpc.Channel;
+import io.grpc.stub.AbstractStub;
+
+import javax.annotation.Nullable;
+import java.lang.reflect.Field;
+
+{{#deprecated}}@Deprecated{{/deprecated}}
+@javax.annotation.Generated(
+    value = "by gRPC Mock Generator",
+    comments = "Source: {{protoName}}")
+public class {{className}} {
+    private {{className}}() {}
+
+    {{#javaDoc}}{{{javaDoc}}}{{/javaDoc}}
+    public static final class {{serviceName}}Mock extends {{serviceName}}Grpc.{{serviceName}}ImplBase {
+        private WiremockHelper wireHelper = new WiremockHelper();
+        private String wiremockHost;
+
+        public {{serviceName}}Mock (String wiremockHost, int wiremockPort) {
+            this.wiremockHost = "http://" + wiremockHost + ":" + wiremockPort + "/";
+        }
+
+
+        {{#methods}}
+
+            {{#javaDoc}}
+        {{{javaDoc}}}
+            {{/javaDoc}}
+            {{#deprecated}}
+        @java.lang.Deprecated
+            {{/deprecated}}
+        @SuppressWarnings("unchecked")
+        public void {{methodName}}({{inputType}} request, io.grpc.stub.StreamObserver<{{outputType}}> responseObserver) {
+            try {
+                System.out.println("mocked service: {{methodName}}");
+                String jsonRequest = JsonFormat.printer().print(request);
+                String jsonResponse = wireHelper.post(this.wiremockHost + "{{methodName}}", jsonRequest);
+                System.out.println(jsonResponse);
+                {{outputType}}.Builder builder = {{outputType}}.newBuilder();
+                JsonFormat.parser().merge(jsonResponse, builder);
+                responseObserver.onNext(builder.build());
+
+            } catch (InvalidProtocolBufferException ipbe) {
+                ipbe.printStackTrace();
+            } finally {
+                responseObserver.onCompleted();
+            }
+
+
+        }
+        {{/methods}}
+    }
+}
