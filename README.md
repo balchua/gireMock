@@ -88,6 +88,9 @@ The generated classes will be:
 
 Since all the generated codes are part of your project, you can easily start your gRPC server like below.
 
+Arguments to the Mock Services are Wiremock host and port.
+
+
 ```
 Server server = ServerBuilder.forPort(port).
                 addService(new PersonManagementMockery.PersonManagementMock("localhost",5501)).
