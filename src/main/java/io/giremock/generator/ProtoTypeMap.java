@@ -33,6 +33,8 @@ public final class ProtoTypeMap {
      * Returns an instance of {@link ProtoTypeMap} based on the given FileDescriptorProto instances.
      *
      * @param fileDescriptorProtos the full collection of files descriptors from the code generator request
+     *
+     * @return ProtoTypeMap
      */
     public static ProtoTypeMap of(@Nonnull Collection<DescriptorProtos.FileDescriptorProto> fileDescriptorProtos) {
         Preconditions.checkNotNull(fileDescriptorProtos, "fileDescriptorProtos");
@@ -97,6 +99,8 @@ public final class ProtoTypeMap {
      * Returns the full Java type name for the given proto type.
      *
      * @param protoTypeName the proto type to be converted to a Java type
+     *
+     * @return theJavaTypeName String
      */
     public String toJavaTypeName(@Nonnull String protoTypeName) {
         Preconditions.checkNotNull(protoTypeName, "protoTypeName");
@@ -109,6 +113,7 @@ public final class ProtoTypeMap {
      * @param className the protobuf type name
      * @param enclosingClassName the optional enclosing class for the given type
      * @param javaPackage the proto file's configured java package name
+     * @return string java type name
      */
     public static String toJavaTypeName(
             @Nonnull String className,
