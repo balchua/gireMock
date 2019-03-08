@@ -19,10 +19,16 @@
         </license>
     </licenses>
 
+    <developers>
+        <developer>
+            <email>chuabal@gmail.com</email>
+            <name>Balchu</name>
+        </developer>
+    </developers>
     <scm>
         <url>https://github.com/balchua/gireMock</url>
-        <connection>scm:git:git://github.com/kevinsawicki/github-maven-example.git</connection>
-        <developerConnection>scm:git:git@github.com:kevinsawicki/github-maven-example.git</developerConnection>
+        <connection>scm:git:git@github.com:balchua/gireMock.git</connection>
+        <developerConnection>scm:git:git@github.com:balchua/gireMock.git</developerConnection>
     </scm>
 
     <properties>
