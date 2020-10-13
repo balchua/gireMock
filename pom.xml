@@ -35,7 +35,7 @@
         <grpc.version>1.18.0</grpc.version><!-- CURRENT_GRPC_VERSION -->
         <protobuf-java-util.version>3.6.0</protobuf-java-util.version>
         <mustache-java.version>0.9.4</mustache-java.version>
-        <junit.version>4.12</junit.version>
+        <junit.version>4.13.1</junit.version>
         <assertj.version>3.6.2</assertj.version>
         <commons-lang.version>2.6</commons-lang.version>
         <okhttp3.version>3.12.1</okhttp3.version>
